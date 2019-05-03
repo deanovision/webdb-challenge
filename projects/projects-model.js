@@ -38,5 +38,5 @@ function getProject(id) {
 function addProject(project) {
   return db("projects")
     .insert(project)
-    .then(({ id }) => getProject(id));
+    .then(id => getProject(id[0]));
 }

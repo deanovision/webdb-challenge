@@ -21,5 +21,14 @@ router.get("/:id", (req, res) => {
       res.status(500).json({ message: "error getting project", error: err });
     });
 });
+router.post("/", (req, res) => {
+  db.addProject(req.body)
+    .then(project => {
+      res.status(201).json(project);
+    })
+    .catch(err => {
+      res.status(500).json({ message: "server err", err });
+    });
+});
 
 module.exports = router;

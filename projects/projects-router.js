@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   db.getProject(req.params.id)
     .then(project => {
+      // console.log(project);
       res.status(200).json(project);
     })
     .catch(err => {
